@@ -1,7 +1,10 @@
 Replace usages of ILogger methods with a log method annotated with [LoggerMessage] 
 
 - Make the class `partial` if it's not already.
-- The generated methods should be at the end of the class, after all members, 
+- The generated methods should be at the end of the class, after all members, the order of the properties should be
+    1. Level
+    2. if relevant, EventId
+    3. Message
 - Set the `EventId` parameters only if the original log message had it. never set the value to `0`.
 - if there's a private field of type `ILogger` make the generated method `private partial void`
 otherwise make it `private static partial void` as pass the ILogger as the first parameter
